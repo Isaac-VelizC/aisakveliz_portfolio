@@ -52,9 +52,9 @@ const HeroSection = () => {
             whileTap={{ scale: 0.95 }}
             href="#projects"
             aria-label={content.hero.view_projects}
-            className="px-6 py-3 rounded-lg font-semibold transition-all duration-300
-               bg-accentcolor text-white shadow-blue-md
-               hover:shadow-cyan-lg hover:brightness-110"
+            className="px-4 py-2 md:px-6 md:py-3 rounded-lg font-semibold transition-all duration-300
+               bg-accentcolor text-white shadow-2xl
+               hover:shadow-blue-md hover:brightness-110"
           >
             {content.hero.view_projects}
           </motion.a>
@@ -66,10 +66,10 @@ const HeroSection = () => {
             whileTap={{ scale: 0.95 }}
               href={content.contact.whatsapp_link}
             aria-label="Contáctame"
-            className="px-6 py-3 rounded-lg font-semibold border-2 transition-all duration-300
+            className="px-4 py-2 md:px-6 md:py-3 rounded-lg font-semibold border-2 transition-all duration-300
                border-accentcolor text-accentcolor bg-transparent
                hover:bg-accentcolor hover:text-white 
-               shadow-blue-md hover:shadow-cyan-lg"
+               shadow-2xl hover:shadow-blue-md"
           >
             {content.contact.title}
           </motion.a>
