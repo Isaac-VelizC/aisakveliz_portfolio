@@ -1,4 +1,4 @@
-import { GitHubIcon, LinkedInIcon, InstagramIcon, CodepenIcon } from "../assets/icons";
+import { GitHubIcon, LinkedInIcon, InstagramIcon } from "../assets/icons";
 
 const socials = [
   {
@@ -17,14 +17,21 @@ const socials = [
     id: 3,
     name: "Instagram",
     icon: <InstagramIcon />,
-    link: "https://www.instagram.com/aisakveliz/profilecard/?igsh=ZWd2MnkwYno0OHR4",
+    link: "https://www.instagram.com/aisak.dev/?igsh=ZWd2MnkwYno0OHR4",
   },
-  {
+  /*{
     id: 4,
     name: "Codepen",
     icon: <CodepenIcon />,
     link: "https://codepen.io/AIsakVeliz",
   },
+  {
+    id: 5,
+    name: "Facebook",
+    icon: <CodepenIcon />,
+    link: "https://www.facebook.com/profile.php?id=61577993713298",
+  },
+  */
 ];
 
 export default socials;

@@ -1,5 +1,5 @@
 import { FaReact, FaLaravel, FaPython, FaGitAlt, FaHtml5, FaCss3Alt } from "react-icons/fa";
-import { SiTailwindcss, SiTypescript, SiDjango, SiMysql, SiPostgresql, SiFigma, SiFlutter, SiFirebase, SiSqlite } from "react-icons/si";
+import { SiTailwindcss, SiTypescript, SiDjango, SiMysql, SiPostgresql, SiFigma, SiFlutter, SiSqlite } from "react-icons/si";
 
 const skills = [
   {
@@ -32,7 +32,7 @@ const skills = [
       { name: "MySQL", icon: <SiMysql /> },
       { name: "PostgreSQL", icon: <SiPostgresql /> },
       { name: "SQLite", icon: <SiSqlite /> },
-      { name: "Firebase", icon: <SiFirebase /> },
+      // { name: "Firebase", icon: <SiFirebase /> },
     ],
   },
   {
@@ -40,7 +40,7 @@ const skills = [
     technologies: [
       { name: "Git", icon: <FaGitAlt /> },
       { name: "Figma", icon: <SiFigma /> },
-      //{ name: "Docker", icon: <SiDocker /> },
+      // { name: "Docker", icon: <SiDocker /> },
     ],
   },
 ];

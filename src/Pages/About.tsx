@@ -1,7 +1,18 @@
 import { motion } from "framer-motion";
 import { content } from "../data/content";
+import curriculum from "./../assets/pdf/Isaac Veliz Canaza - Curriculum.pdf";
 
 const AboutSection = () => {
+
+  const downloadDocument = () => {
+    const link = document.createElement("a");
+    link.href = curriculum;
+    link.download = "IsaacVeliz_hoja-de-vida.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link); // Limpiar el DOM
+  };
+
   return (
     <section id="aboutMe" className="relative h-auto flex flex-col pt-[5rem]">
       <div className="flex flex-col md:items-center md:flex-row items-start gap-12 md:gap-20 relative z-10">
@@ -35,7 +46,8 @@ const AboutSection = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-accentcolor/20 text-accentcolor hover:bg-accentcolor rounded-xl px-8 py-3 uppercase font-semibold tracking-wide transition duration-300"
+            className="bg-accentcolor/20 text-accentcolor hover:text-textlight hover:bg-accentcolor rounded-xl px-8 py-3 uppercase font-semibold tracking-wide transition duration-300"
+            onClick={() => downloadDocument()}
           >
             {content.about.buttonDonwload}
           </motion.button>

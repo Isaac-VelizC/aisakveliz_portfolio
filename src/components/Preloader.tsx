@@ -2,7 +2,7 @@ const Preloader = () => {
   return (
     <div
       id="preloader"
-      className="fixed flex flex-wrap justify-center items-center bg-primarydark z-[500] h-screen w-full opacity-100"
+      className="fixed flex flex-wrap justify-center items-center bg-primarydark z-999999 h-screen w-full opacity-100"
     >
       <div
         id="loader"

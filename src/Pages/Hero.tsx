@@ -11,9 +11,13 @@ const itemVariants = {
   hidden: { opacity: 0, x: 50 },
   visible: { opacity: 1, x: 0 },
 };
+
 const HeroSection = () => {
   return (
-    <section id="hero" className="h-screen flex flex-col justify-center md:flex-row md:justify-between md:items-center">
+    <section
+      id="hero"
+      className="h-screen flex flex-col justify-center md:flex-row md:justify-between md:items-center"
+    >
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -36,7 +40,7 @@ const HeroSection = () => {
           <span className="text-accentcolor font-semibold">
             {content.hero.role}
           </span>
-          .<br className="hidden sm:inline" />
+          . <br className="hidden sm:inline" />
           Construyo soluciones <span className="italic">eficientes</span> y{" "}
           <span className="italic">centradas en el usuario</span>.
         </motion.h1>
@@ -56,7 +60,7 @@ const HeroSection = () => {
       </motion.div>
       <ul
         aria-label="Redes sociales"
-        className="flex sm:flex-row sm:absolute sm:right-12 lg:right-4 sm:top-[5%] sm:transform sm:-translate-y-1/2 sm:rotate-[-90deg] sm:origin-top-right z-10 list-none text-[0.6rem] font-normal text-gray-500 uppercase tracking-wider items-center sm:space-y-0 sm:space-x-8 gap-6 sm:gap-0"
+        className="flex sm:flex-row sm:absolute sm:right-12 lg:right-4 sm:top-[5%] sm:transform sm:-translate-y-1/2 sm:rotate-[-90deg] sm:origin-top-right z-10 list-none text-[0.7rem] font-normal text-gray-500 uppercase tracking-wider items-center sm:space-y-0 sm:space-x-8 gap-6 sm:gap-0"
       >
         {socials.map((network, index) => (
           <motion.li
@@ -71,7 +75,7 @@ const HeroSection = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={network.name}
-              whileHover={{ scale: 1.2, color: "#ff00c3" }}
+              whileHover={{ scale: 1.2, color: "#00b7ff" }}
               transition={{ type: "spring", stiffness: 300 }}
             >
               {network.name}

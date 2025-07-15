@@ -11,7 +11,7 @@ const Footer = () => {
 
         <div className="flex space-x-4">
           <a
-            href="https://github.com/aisakveliz"
+            href="https://github.com/Isaac-VelizC"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-white transition-colors duration-300"
@@ -19,7 +19,7 @@ const Footer = () => {
             GitHub
           </a>
           <a
-            href="mailto:aisakveliz@gmail.com"
+            href="mailto:aisakvelizdc@gmail.com"
             className="hover:text-white transition-colors duration-300"
           >
             Contacto
