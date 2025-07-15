@@ -46,7 +46,7 @@ const AboutSection = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-accentcolor/20 text-accentcolor hover:text-textlight hover:bg-accentcolor rounded-xl px-8 py-3 uppercase font-semibold tracking-wide transition duration-300"
+            className="bg-accentcolor/20 text-accentcolor hover:text-textlight hover:bg-accentcolor hover:shadow-blue-md rounded-xl px-8 py-3 uppercase font-semibold tracking-wide transition duration-300"
             onClick={() => downloadDocument()}
           >
             {content.about.buttonDonwload}

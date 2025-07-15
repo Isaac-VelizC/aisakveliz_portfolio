@@ -35,14 +35,13 @@ export const content = {
   contact: {
     title: "Contáctame",
     emailPlaceholder: "aisakvelizdc@gmail.com",
-    numberPlaceholder: "+591 69625120",
+    whatsapp_link: "https://wa.me/59169625120?text=Hola,%20me%20interesa%20tu%20trabajo%20como%20desarrollador.",
     button: "Enviar",
     contact_message:
       "¿Tienes una idea, proyecto o desafío digital? Estoy listo para ayudarte a convertirlo en una solución real. ¡Hablemos!",
     contact_datas: "Información de contacto",
-    contact_button_text: "Enviar un mensaje",
+    contact_button_text: "Escríbeme por WhatsApp",
     copied_email_message: "Correo copiado exitosamente",
-    copied_num_message: "Número copiado exitosamente",
   },
 };
 

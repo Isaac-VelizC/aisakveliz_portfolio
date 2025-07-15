@@ -5,8 +5,6 @@ import { useCallback, useState } from "react";
 import { content } from "../data/content";
 
 const email = content.contact.emailPlaceholder;
-const subject = "Consulta sobre servicios";
-const body = "Hola Isak, vi tu portafolio y me gustaría conversar sobre...";
 
 const ContactSection = () => {
   const [copied, setCopied] = useState(false);
@@ -22,10 +20,14 @@ const ContactSection = () => {
           setCopiedText("");
         }, 2000);
       })
-      .catch((err) => console.error("Error copying to clipboard: ", err));
+      .catch((err) => console.error("Error al copiar al portapapeles: ", err));
   }, []);
+
   return (
-    <section id="contactMe" className="py-24 md:py-32 bg-transparent text-white">
+    <section
+      id="contactMe"
+      className="py-24 md:py-32 bg-transparent text-white"
+    >
       <div className="max-w-6xl mx-auto">
         {/* Título */}
         <motion.div
@@ -61,15 +63,6 @@ const ContactSection = () => {
                 {copied && copiedText === email && (
                   <span className="text-green-400 text-sm">
                     {content.contact.copied_email_message}
-                  </span>
-                )}
-              </div>
-              <div className="flex items-center gap-2">
-                <p>{content.contact.numberPlaceholder}</p>
-                <CopyIcon onClick={() => copyToClipboard("+591 69625120")} />
-                {copied && copiedText === "+591 69625120" && (
-                  <span className="text-green-400 text-sm">
-                    {content.contact.copied_num_message}
                   </span>
                 )}
               </div>
@@ -112,12 +105,12 @@ const ContactSection = () => {
             viewport={{ once: true }}
           >
             <a
-              href={`mailto:${email}?subject=${encodeURIComponent(
-                subject
-              )}&body=${encodeURIComponent(body)}`}
+              href={content.contact.whatsapp_link}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full text-center px-6 py-4 rounded-lg uppercase font-semibold tracking-widest transition duration-300
               text-accentcolor bg-accentcolor/20 hover:bg-accentcolor
-              hover:text-white shadow-md hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-accentcolor/50"
+              hover:text-white shadow-md hover:shadow-blue-md focus:outline-none focus:ring-4 focus:ring-accentcolor/50"
             >
               {content.contact.contact_button_text}
             </a>

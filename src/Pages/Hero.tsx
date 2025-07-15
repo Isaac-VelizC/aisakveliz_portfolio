@@ -44,17 +44,34 @@ const HeroSection = () => {
           Construyo soluciones <span className="italic">eficientes</span> y{" "}
           <span className="italic">centradas en el usuario</span>.
         </motion.h1>
-        <div className="mt-8">
+        <div className="mt-10 flex flex-wrap gap-4">
+          {/* Botón principal: Ver proyectos */}
           <motion.a
             variants={itemVariants}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.06 }}
             whileTap={{ scale: 0.95 }}
-            className="mt-8 px-6 py-3 bg-accentcolor text-white rounded-lg font-semibold shadow-lg"
             href="#projects"
-            role="link"
             aria-label={content.hero.view_projects}
+            className="px-6 py-3 rounded-lg font-semibold transition-all duration-300
+               bg-accentcolor text-white shadow-blue-md
+               hover:shadow-cyan-lg hover:brightness-110"
           >
             {content.hero.view_projects}
+          </motion.a>
+
+          {/* Botón secundario: Contáctame */}
+          <motion.a
+            variants={itemVariants}
+            whileHover={{ scale: 1.06 }}
+            whileTap={{ scale: 0.95 }}
+              href={content.contact.whatsapp_link}
+            aria-label="Contáctame"
+            className="px-6 py-3 rounded-lg font-semibold border-2 transition-all duration-300
+               border-accentcolor text-accentcolor bg-transparent
+               hover:bg-accentcolor hover:text-white 
+               shadow-blue-md hover:shadow-cyan-lg"
+          >
+            {content.contact.title}
           </motion.a>
         </div>
       </motion.div>
