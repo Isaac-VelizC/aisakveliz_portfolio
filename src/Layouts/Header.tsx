@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, LayoutGroup } from "framer-motion";
 import LogoName from "../components/Logoname";
 
 const navigationItems = [
@@ -44,6 +44,32 @@ const Header = () => {
     setOpen(false);
   };
 
+  // Aquí el efecto para actualizar active según scroll
+  useEffect(() => {
+    const onScroll = () => {
+      const scrollPosition = window.scrollY + window.innerHeight / 3; // Ajusta el offset para que active un poco antes
+
+      for (let i = navigationItems.length - 1; i >= 0; i--) {
+        const section = document.querySelector(navigationItems[i].ref);
+        if (section) {
+          const offsetTop =
+            section.getBoundingClientRect().top + window.scrollY;
+          if (scrollPosition >= offsetTop) {
+            setActive(navigationItems[i].activeClass);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", onScroll);
+
+    // Llamada inicial para setear active si ya está scrolleado al cargar
+    onScroll();
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <nav
       id="navbar"
@@ -52,74 +78,68 @@ const Header = () => {
       aria-label="Main Navigation"
     >
       <div className="container mx-auto flex items-center justify-between px-6 py-4 font-medium xl:px-12">
-        <a
-          href="#hero"
-          className="cursor-pointer z-999"
-          aria-label="Homepage"
-        >
+        <a href="#hero" className="cursor-pointer z-999" aria-label="Homepage">
           <LogoName inicial="AI" name="sakVeliz" textsize="text-2xl" />
         </a>
+        <LayoutGroup>
+          <motion.ul className="hidden md:flex items-center gap-12 font-bold text-white relative">
+            {navigationItems.map(({ name, activeClass, ref }) => {
+              const isActive = active === activeClass;
 
-        <ul className="hidden md:flex items-center gap-12 font-bold text-white">
-          {navigationItems.map(({ name, activeClass, ref }) => (
-            <li
-              key={name}
-              onClick={() => handleNavigation(activeClass, ref)}
-              className={`cursor-pointer font-sans transition duration-700 hover:text-[var(--color-accentcolor)] ${
-                active === activeClass
-                  ? "border-b-2 border-[var(--color-accentcolor)] pb-1"
-                  : ""
-              }`}
-              role="link"
-              tabIndex={0}
-              onKeyDown={(e) =>
-                e.key === "Enter" && handleNavigation(activeClass, ref)
-              }
-              aria-current={active === activeClass ? "page" : undefined}
-            >
-              {name}
-            </li>
-          ))}
-        </ul>
+              return (
+                <motion.li
+                  key={name}
+                  onClick={() => handleNavigation(activeClass, ref)}
+                  className="cursor-pointer font-sans transition duration-300 hover:text-accentcolor relative"
+                  role="link"
+                  tabIndex={0}
+                  onKeyDown={(e) =>
+                    e.key === "Enter" && handleNavigation(activeClass, ref)
+                  }
+                  aria-current={isActive ? "page" : undefined}
+                  style={{ paddingBottom: "0.25rem" }}
+                  layout
+                >
+                  {name}
+                  {isActive && (
+                    <motion.div
+                      className="absolute left-0 right-0 bottom-0 h-0.5 bg-accentcolor rounded"
+                      layoutId="underline"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 500,
+                        damping: 30,
+                      }}
+                    />
+                  )}
+                </motion.li>
+              );
+            })}
+          </motion.ul>
+        </LayoutGroup>
 
         <button
-          className="md:hidden text-white focus:outline-none z-999"
+          className="md:hidden text-white focus:outline-none z-99"
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={open}
           onClick={() => setOpen(!open)}
         >
-          {!open ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="36"
-              width="36"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                d="M3 6h18M3 12h18M3 18h18"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-            </svg>
-          ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="36"
-              width="36"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-              className="z-99"
-            >
-              <path
-                d="M6 6l12 12M6 18L18 6"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-            </svg>
-          )}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="36"
+            width="36"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              d="M3 6h18M3 12h18M3 18h18"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+          </svg>
         </button>
 
         <motion.ul
