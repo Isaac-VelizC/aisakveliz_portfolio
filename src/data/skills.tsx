@@ -1,4 +1,4 @@
-import { FaReact, FaLaravel, FaPython, FaGitAlt, FaHtml5, FaCss3Alt } from "react-icons/fa";
+import { FaReact, FaLaravel, FaGitAlt, FaHtml5, FaCss3Alt } from "react-icons/fa";
 import { SiTailwindcss, SiTypescript, SiDjango, SiMysql, SiPostgresql, SiFigma, SiFlutter, SiSqlite } from "react-icons/si";
 
 const skills = [
@@ -17,7 +17,8 @@ const skills = [
     technologies: [
       { name: "Django", icon: <SiDjango /> },
       { name: "Laravel", icon: <FaLaravel /> },
-      { name: "Python", icon: <FaPython /> },
+      // { name: "Supabase", icon: <SiSupabase /> },
+      // { name: "Firebase", icon: <SiFirebase /> },
     ],
   },
   {
@@ -32,7 +33,6 @@ const skills = [
       { name: "MySQL", icon: <SiMysql /> },
       { name: "PostgreSQL", icon: <SiPostgresql /> },
       { name: "SQLite", icon: <SiSqlite /> },
-      // { name: "Firebase", icon: <SiFirebase /> },
     ],
   },
   {

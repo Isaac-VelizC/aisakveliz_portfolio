@@ -11,6 +11,15 @@ export const projects = [
     programming_languages: ["PHP", "JavaScript"],
   },
   {
+    title: "App Móvil para Medición de Satisfacción del Cliente",
+    short: "Feedback digital en tiempo real para mejorar la experiencia institucional.",
+    description:
+      "Aplicación Android desarrollada con Flutter y SQLite para una universidad privada. Facilita la recolección y análisis de la satisfacción de clientes (estudiantes, personal, visitantes) en distintas áreas. Genera reportes exportables que apoyan la toma de decisiones estratégicas para mejorar procesos y servicios.",
+    date: "17 de diciembre de 2023",
+    frameworks: ["Flutter"],
+    programming_languages: ["Dart"],
+  },
+  {
     title: "Sistema de Monitoreo de Camiones en Tiempo Real",
     short: "Gestión logística para transporte minero.",
     description:
@@ -31,15 +40,6 @@ export const projects = [
     preview: "",
     frameworks: ["Laravel"],
     programming_languages: ["PHP", "JavaScript"],
-  },
-  {
-    title: "App Móvil para Medición de Satisfacción del Cliente",
-    short: "Feedback digital en tiempo real.",
-    description:
-      "Aplicación Android desarrollada con Flutter y SQLite. Permite a instituciones recolectar y analizar el nivel de satisfacción de sus clientes en diversas áreas, generando reportes exportables para su análisis estratégico.",
-    date: "17 de diciembre de 2023",
-    frameworks: ["Flutter"],
-    programming_languages: ["Dart"],
   },
   {
     title: "Plataforma Web de Gestión Inmobiliaria",
