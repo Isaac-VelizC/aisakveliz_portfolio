@@ -18,7 +18,8 @@ SECRET_KEY = config('APP_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('APP_DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = config('APP_ALLOWED_HOSTS').split(',')
+# ALLOWED_HOSTS robusto
+ALLOWED_HOSTS = [host.strip() for host in config('APP_ALLOWED_HOSTS', default='localhost').split(',')]
 
 SITE_ID = 1
 REST_USE_JWT = False
