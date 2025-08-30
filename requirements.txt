@@ -1,0 +1,26 @@
+Django==5.2.1
+djangorestframework==3.16.0
+django-cors-headers==4.7.0
+django-filter==25.1
+
+# Autenticación
+djangorestframework_simplejwt==5.5.0
+django-allauth==65.8.0
+dj-rest-auth==7.0.1
+
+# Archivos e imágenes
+pillow==11.2.1
+cloudinary==1.44.0
+django-cloudinary-storage==0.3.0
+
+# DB y variables de entorno
+psycopg2-binary==2.9.10
+python-decouple==3.8
+
+# Producción
+gunicorn==23.0.0
+dj-database-url==3.0.1
+whitenoise==6.9.0
+
+# Opcionales (si los necesitas)
+django-autoslug==1.9.9

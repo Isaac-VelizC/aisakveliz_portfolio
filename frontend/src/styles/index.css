@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Importa Tailwind CSS */
+@import "tailwindcss";
+
+/*===============================
+=            Tokens             =
+===============================*/
+
+@theme {
+  /* Tipografías - Corregidas sin espacios */
+  --font-serif: "DM Serif Display", serif;
+  --font-sans: "Public Sans", sans-serif;
+  --font-audiowide: "Audiowide", sans-serif;
+
+  /* Colores */
+  --color-primarydark: #0a0f1c; /* Fondo oscuro profundo */
+  --color-secondarydark: #121826; /* Fondo de secciones */
+  --color-primarylight: #1e293b; /* Contenedores y cards */
+  --color-accentcolor: #00b7ff; /* Azul neón principal */
+  --color-accentglow: #00ffff; /* Azul-cian brillante para hover o bordes */
+  --color-textlight: #e2e8f0; /* Texto principal claro */
+  --color-textmuted: #94a3b8; /* Texto secundario */
+  --color-warning: #ff4d6d; /* Para errores o alertas */
+  --color-neonPurple: #bd00ff; /* acento: hover, íconos */
+  --color-neonCyan: #00b7ff; /* acento: bordes */
+  --color-neonPink: #ff00c3; /* acento: call-to-action */
+
+  /* Sombras */
+  --shadow-blue-md: 0 0 4px #00b7ff, 0 0 8px #00b7ff;
+  --shadow-cyan-lg: 0 0 8px #00ffff, 0 0 16px #00ffff;
+  --shadow-neonCyan-lg: 0 0 10px #00b7ff;
+  
+  /* Z-Index */
+  --z-index-1: 1;
+  --z-index-9: 9;
+  --z-index-99: 99;
+  --z-index-999: 999;
+  --z-index-9999: 9999;
+  --z-index-99999: 99999;
+  --z-index-999999: 999999;
+
+  /* Breakpoints personalizados */
+  --breakpoint-2xsm: 375px;
+  --breakpoint-xsm: 425px;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1320px;
+  --breakpoint-3xl: 1600px;
+  --breakpoint-4xl: 1850px;
+
+  /* Animaciones */
+  --animate-sk-scaleout: sk-scaleout 1s infinite ease-in-out;
+}
+
+/*===============================
+=        Dark Mode Variant      =
+===============================*/
+
+/* Corregida la sintaxis del custom variant */
+/* Removed invalid empty @variant rule */
+
+/*===============================
+=          Animaciones          =
+===============================*/
+
+@keyframes sk-scaleout {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/*===============================
+=         Estilos Base          =
+===============================*/
+
+/* Removido el hover genérico problemático */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-primarydark);
+  color: var(--color-textlight);
+  margin: 0;
+  padding: 0;
+  /* Cursor personalizado mejorado */
+  cursor: url('data:image/svg+xml;utf8,<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="8" fill="rgba(0,183,255,0.6)" /></svg>') 16 16, auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-audiowide);
+  color: var(--color-textlight);
+}
+
+/* Clase para texto neón mejorada */
+.neonText {
+  color: #fff;
+  text-shadow: 
+    0 0 5px var(--color-neonPurple), 
+    0 0 10px var(--color-neonPurple), 
+    0 0 20px var(--color-neonPink),
+    0 0 40px var(--color-neonPink);
+}
+
+/* Efectos hover específicos */
+.hover-glow:hover {
+  box-shadow: var(--shadow-blue-md);
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+/* Enlaces con efecto neón */
+a:hover {
+  text-shadow: 0 0 5px var(--color-accentglow);
+  transition: all 0.3s ease;
+}
+
+/* FOOTER */
+footer {
+  position: relative;
+  margin-top: 5rem;
+  padding-block: 3rem;
+  border-top: 1px var(--color-primarylight);
+  background: linear-gradient(135deg, var(--color-secondarydark) 0%, var(--color-primarydark) 100%);
+}
+
+.footer_line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-accentcolor), var(--color-neonPurple), var(--color-neonPink), transparent);
+}
+
+.footer_separador {
+  height: 1px;
+  margin-bottom: 1.5rem;
+  background:
+    linear-gradient(90deg, transparent, var(--color-primarylight), transparent);
+}

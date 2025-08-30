@@ -1,0 +1,19 @@
+from django.urls import path, include, re_path
+from django.views.generic import TemplateView
+from django.contrib import admin
+# from django.conf import settings
+# from django.conf.urls.static import static
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/a/', include('apps.about.urls')),
+    path('api/c/', include('apps.contact.urls')),
+    path('api/p/', include('apps.projects.urls')),
+    path('api/s/', include('apps.services.urls')),
+    path('api/tt/', include('apps.testimonials.urls')),
+    path('api/t/', include('apps.technology.urls')),
+]
+
+urlpatterns += [
+    re_path(r'^.*$', TemplateView.as_view(template_name='index.html')),
+]
