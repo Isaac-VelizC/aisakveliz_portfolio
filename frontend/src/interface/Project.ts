@@ -1,4 +1,4 @@
-import type { TechnologyInterface } from "./Category";
+// import type { TechnologyInterface } from "./Category";
 
 export interface ProjectsInterface {
   id: string;
@@ -10,7 +10,7 @@ export interface ProjectsInterface {
   demo_url: string;
   date: string;
   status: string;
-  technologies: TechnologyInterface[];
+  technologies: { name: string }[];
   views: number;
   stars: number;
   featured: boolean;

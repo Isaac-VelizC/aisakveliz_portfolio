@@ -1,6 +1,6 @@
 import { motion, type Variants } from "framer-motion";
 import type { ServiceInterface } from "../../interface/Service";
-import { randomGradient } from "../../utils/funtionsUtils";
+// import { randomGradient } from "../../utils/funtionsUtils";
 import { iconMap } from "../../utils/iconMap";
 
 type Props = {
@@ -27,7 +27,8 @@ const cardVariants: Variants = {
 };
 
 const CardService = ({ service }: Props) => {
-  const gradient = randomGradient();
+  // const gradient = randomGradient();
+
   return (
     <motion.div
       variants={cardVariants}
@@ -36,26 +37,18 @@ const CardService = ({ service }: Props) => {
         scale: 1.02,
         transition: { duration: 0.3 },
       }}
-      className="group relative overflow-hidden rounded-2xl p-8 h-full cursor-pointer"
-      style={{
-        backgroundColor: "#121826",
-        border: "1px solid rgba(30, 41, 59, 0.5)",
-      }}
+      className="group relative overflow-hidden rounded-2xl p-8 h-full cursor-pointer bg-secondarydark border border-solid border-primarylight/80"
     >
       {/* Gradient overlay on hover */}
-      <div
-        className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
-      />
+      <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}/>
 
       {/* Glow border effect */}
-      <div
-        className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500`}
-      />
+      <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500`}/>
 
       <div className="relative z-10">
         {/* Icon */}
         <motion.div
-          className={`inline-flex p-3 rounded-xl mb-6 bg-gradient-to-br ${gradient}`}
+          className={`inline-flex p-3 rounded-xl mb-6 bg-gradient-to-br ${service.gradient}`}
           whileHover={{ rotate: 5, scale: 1.1 }}
           transition={{ duration: 0.3 }}
         >
@@ -67,7 +60,7 @@ const CardService = ({ service }: Props) => {
           {service.title}
         </h3>
 
-        <p className="mb-6 leading-relaxed" style={{ color: "#94a3b8" }}>
+        <p className="mb-6 leading-relaxed text-textmuted">
           {service.description}
         </p>
 
@@ -83,7 +76,7 @@ const CardService = ({ service }: Props) => {
                 borderColor: "#00b7ff",
               }}
             >
-              {tech.name}
+              {tech}
             </motion.span>
           ))}
         </div>

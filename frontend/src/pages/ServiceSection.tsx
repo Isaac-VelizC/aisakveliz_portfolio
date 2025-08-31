@@ -6,11 +6,12 @@ import {
 } from "framer-motion";
 import HeaderComponent from "../components/HeaderComponent";
 import { containerVariants } from "../utils/AnimateVariantsUtils";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import ServiceDecorationBackgroud from "./Components/ServiceDecorationBackgroud";
 import CardService from "./Components/CardService";
-import type { ServiceInterface } from "../interface/Service";
-import { InfoService } from "../api/fetchService";
+import { services } from "../assets/informacion.json";
+// import type { ServiceInterface } from "../interface/Service";
+// import { InfoService } from "../api/fetchService";
 
 const headerVariants: Variants = {
   hidden: { opacity: 0, y: 50, filter: "blur(10px)" },
@@ -29,14 +30,14 @@ const ServiceSection = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
-  const [services, setServices] = useState<ServiceInterface[]>([]);
-  useEffect(() => {
-    const fetchServices = async () => {
-      const data = await InfoService.getServices();
-      setServices(data);
-    };
-    fetchServices();
-  }, []);
+  // const [services, setServices] = useState<ServiceInterface[]>([]);
+  // useEffect(() => {
+  //   const fetchServices = async () => {
+  //     const data = await InfoService.getServices();
+  //     setServices(data);
+  //   };
+  //   fetchServices();
+  // }, []);
 
   return (
     <section
@@ -78,7 +79,7 @@ const ServiceSection = () => {
         </motion.div>
 
         {/* Services Grid */}
-        <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence mode="popLayout">
             {services.map((service) => (
               <CardService key={service.id} service={service} />
@@ -100,7 +101,7 @@ const ServiceSection = () => {
               boxShadow: "0 10px 40px rgba(0, 183, 255, 0.3)",
             }}
             whileTap={{ scale: 0.95 }}
-            href="#contact"
+            href="#contactMe"
           >
             <span className="text-lg font-semibold relative text-accentcolor z-10 group-hover:text-white transition-colors duration-300">
               ¿Tienes un proyecto en mente?
@@ -128,37 +129,3 @@ const ServiceSection = () => {
 };
 
 export default ServiceSection;
-
-/**
- * 
-const services = [
-  {
-    icon: <BiCode className="w-8 h-8" />,
-    title: "Desarrollo Full Stack",
-    description:
-      "Construyo soluciones end-to-end, desde APIs escalables hasta interfaces modernas y optimizadas para el usuario.",
-    technologies: ["React", "Next.js", "Django", "PostgreSQL"],
-  },
-  {
-    icon: <FiSmartphone className="w-8 h-8" />,
-    title: "Aplicaciones Móviles",
-    description:
-      "Apps híbridas y nativas para iOS y Android que ofrecen experiencias rápidas, seguras y atractivas.",
-    technologies: ["React Native", "Flutter"],
-  },
-  {
-    icon: <FiZap className="w-8 h-8" />,
-    title: "Optimización & Performance",
-    description:
-      "Mejoro la velocidad y estabilidad de aplicaciones existentes, elevando métricas clave como Core Web Vitals.",
-    technologies: ["Vite", "Lighthouse", "Core Web Vitals"],
-  },
-  {
-    icon: <FaUserSlash className="w-8 h-8" />,
-    title: "Consultoría Técnica",
-    description:
-      "Guío equipos y proyectos en decisiones arquitectónicas, revisión de código y elección de la mejor estrategia tecnológica.",
-    technologies: ["Architecture", "Code Review", "Tech Strategy"],
-  },
-];
- */

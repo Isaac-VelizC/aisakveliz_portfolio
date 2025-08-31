@@ -1,4 +1,4 @@
-import type { TechnologyInterface } from "./Category";
+// import type { TechnologyInterface } from "./Category";
 
 export interface ServiceInterface {
   id: string;
@@ -7,5 +7,6 @@ export interface ServiceInterface {
   description: string;
   icon: string;
   order: number;
-  technologies?: TechnologyInterface[];
+  technologies?: string[];
+  gradient: string;
 }

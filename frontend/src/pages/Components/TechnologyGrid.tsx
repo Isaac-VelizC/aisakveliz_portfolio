@@ -1,9 +1,10 @@
 import { motion, type Variants } from "framer-motion";
 import { containerVariants } from "../../utils/AnimateVariantsUtils";
-import { useEffect, useState } from "react";
-import type { CategoryInterface } from "../../interface/Category";
-import { InfoService } from "../../api/fetchService";
+// import { useEffect, useState } from "react";
+// import type { CategoryInterface } from "../../interface/Category";
+// import { InfoService } from "../../api/fetchService";
 import CardGridSkill from "./CardGridSkill";
+import { categories } from "../../assets/informacion.json";
 
 type Props = {
   inView: boolean;
@@ -22,27 +23,27 @@ const categoryVariants: Variants = {
 };
 
 const TechnologyGrid = ({ inView }: Props) => {
-  const [data, setData] = useState<CategoryInterface[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  // const [data, setData] = useState<CategoryInterface[]>([]);
+  // const [isLoading, setIsLoading] = useState<boolean>(true);
 
   // Fetch data
-  useEffect(() => {
-    const fetchCategoryInfo = async () => {
-      try {
-        const data = await InfoService.getTechnology();
-        setData(data);
-      } catch (error) {
-        console.error("Error fetching category info:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchCategoryInfo();
-  }, []); // arreglo vacío para evitar multiples ejecucione
+  // useEffect(() => {
+  //   const fetchCategoryInfo = async () => {
+  //     try {
+  //       const data = await InfoService.getTechnology();
+  //       setData(data);
+  //     } catch (error) {
+  //       console.error("Error fetching category info:", error);
+  //     } finally {
+  //       setIsLoading(false);
+  //     }
+  //   };
+  //   fetchCategoryInfo();
+  // }, []); // arreglo vacío para evitar multiples ejecucione
 
-  if (isLoading) {
-    return <div>Cargando...</div>;
-  }
+  // if (isLoading) {
+  //   return <div>Cargando...</div>;
+  // }
 
   return (
     <motion.div
@@ -51,8 +52,8 @@ const TechnologyGrid = ({ inView }: Props) => {
       animate={inView ? "visible" : "hidden"}
       className="space-y-16"
     >
-      {data &&
-        data.map(({ name, technologies }, categoryIndex) => (
+      {categories &&
+        categories.map(({ name, technologies }, categoryIndex) => (
           <motion.div
             key={categoryIndex}
             variants={categoryVariants}

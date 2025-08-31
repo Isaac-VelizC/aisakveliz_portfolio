@@ -1,4 +1,4 @@
-import type { TechnologyInterface } from "./Category";
+// import type { TechnologyInterface } from "./Category";
 
 export interface AboutInfoInterface {
     title: string;
@@ -6,6 +6,6 @@ export interface AboutInfoInterface {
     photo: string;
     years_of_experience: number;
     projects: number;
-    main_technologies: TechnologyInterface[];
+    main_technologies: string[];
     cv_file: string;
 }

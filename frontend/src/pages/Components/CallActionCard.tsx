@@ -26,7 +26,7 @@ const CallAction = ({ isInView }: Props) => {
           </p>
         </div>
         <motion.a
-          href="#contact"
+          href="#contactMe"
           whileHover={{ x: 5 }}
           className="px-6 py-2 bg-accentcolor text-white rounded-xl font-medium hover:bg-neonCyan transition-colors duration-300"
         >

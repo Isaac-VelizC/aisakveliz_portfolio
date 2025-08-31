@@ -15,7 +15,8 @@ import {
   FaCodepen,
   FaYoutube,
   FaTiktok,
-  FaWhatsapp
+  FaWhatsapp,
+  FaGithub
 } from "react-icons/fa";
 import { FiSmartphone, FiZap } from "react-icons/fi";
 
@@ -46,6 +47,7 @@ export const iconMap: Record<string, JSX.Element> = {
   flutter: <SiFlutter />,
   sqlite: <SiSqlite />,
   github: <DiGithub />,
+  faGithub: <FaGithub />,
   instagram: <FaInstagram />,
   linkedin: <FaLinkedin />,
   facebook: <FaFacebook />,
@@ -58,39 +60,3 @@ export const iconMap: Record<string, JSX.Element> = {
   zap: <FiZap className="w-8 h-8" />,
   users: <FaUsers className="w-8 h-8" />
 };
-
-
-
-/**
- * 
-const services = [
-  {
-    icon: <BiCode className="w-8 h-8" />,
-    title: "Desarrollo Full Stack",
-    description:
-      "Construyo soluciones end-to-end, desde APIs escalables hasta interfaces modernas y optimizadas para el usuario.",
-    technologies: ["React", "Next.js", "Django", "PostgreSQL"],
-  },
-  {
-    icon: <FiSmartphone className="w-8 h-8" />,
-    title: "Aplicaciones Móviles",
-    description:
-      "Apps híbridas y nativas para iOS y Android que ofrecen experiencias rápidas, seguras y atractivas.",
-    technologies: ["React Native", "Flutter"],
-  },
-  {
-    icon: <FiZap className="w-8 h-8" />,
-    title: "Optimización & Performance",
-    description:
-      "Mejoro la velocidad y estabilidad de aplicaciones existentes, elevando métricas clave como Core Web Vitals.",
-    technologies: ["Vite", "Lighthouse", "Core Web Vitals"],
-  },
-  {
-    icon: <FaUserSlash className="w-8 h-8" />,
-    title: "Consultoría Técnica",
-    description:
-      "Guío equipos y proyectos en decisiones arquitectónicas, revisión de código y elección de la mejor estrategia tecnológica.",
-    technologies: ["Architecture", "Code Review", "Tech Strategy"],
-  },
-];
- */

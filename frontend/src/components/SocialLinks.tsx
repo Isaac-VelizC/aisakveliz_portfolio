@@ -1,21 +1,22 @@
 import { motion } from "framer-motion";
 import { containerVariants, itemVariants } from "../utils/AnimateVariantsUtils";
-import type { SocialNetworkInterface } from "../interface/Contact";
-import { useEffect, useState } from "react";
-import { InfoService } from "../api/fetchService";
+// import type { SocialNetworkInterface } from "../interface/Contact";
+// import { useEffect, useState } from "react";
+// import { InfoService } from "../api/fetchService";
 import { iconMap } from "../utils/iconMap";
+import { socials } from "../assets/informacion.json";
 
 const SocialLinks = () => {
-  const [socialLinks, setSocialLinks] = useState<SocialNetworkInterface[]>([]);
+  // const [socialLinks, setSocialLinks] = useState<SocialNetworkInterface[]>([]);
 
-  useEffect(() => {
-    const fetchSocialLinks = async () => {
-      const data = await InfoService.getSocialLinks();
-      setSocialLinks(data.results);
-    };
+  // useEffect(() => {
+  //   const fetchSocialLinks = async () => {
+  //     const data = await InfoService.getSocialLinks();
+  //     setSocialLinks(data.results);
+  //   };
 
-    fetchSocialLinks();
-  }, []);
+  //   fetchSocialLinks();
+  // }, []);
 
   return (
     <div>
@@ -27,7 +28,7 @@ const SocialLinks = () => {
         className="fixed right-8 top-1/2 transform -translate-y-1/2 z-20 hidden lg:block"
       >
         <div className="flex flex-col gap-6">
-          {socialLinks.map((network, index) => (
+          {socials.map((network, index) => (
             <motion.a
               key={index}
               href={network.url}
@@ -58,7 +59,7 @@ const SocialLinks = () => {
         animate="visible"
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-4 lg:hidden"
       >
-        {socialLinks.map((network, index) => (
+        {socials.map((network, index) => (
           <motion.a
             key={index}
             variants={itemVariants}

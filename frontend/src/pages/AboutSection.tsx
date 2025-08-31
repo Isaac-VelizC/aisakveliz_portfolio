@@ -1,13 +1,14 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import AboutGradientBackground from "./Components/AboutGradientBackground";
 import ScrollIndicator from "../components/ScrollIndicator";
 import { useInView, motion, type Variants } from "framer-motion";
 import HeaderComponent from "../components/HeaderComponent";
 import { containerVariants } from "../utils/AnimateVariantsUtils";
 import ImageSectionAbout from "./Components/ImageSectionAbout";
-import { InfoService } from "../api/fetchService";
-import type { AboutInfoInterface } from "../interface/About";
+// import { InfoService } from "../api/fetchService";
+// import type { AboutInfoInterface } from "../interface/About";
 import { contentText } from "../utils/dataUtils";
+import { about } from "../assets/informacion.json";
 
 // Variants centralizados
 const itemVariants: Variants = {
@@ -31,28 +32,28 @@ const downloadDocument = () => {
 
 const AboutSection = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
-  const [data, setData] = useState<AboutInfoInterface | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  // const [data, setData] = useState<AboutInfoInterface | null>(null);
+  // const [isLoading, setIsLoading] = useState(true);
 
   // Animaciones de scroll
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   // Fetch data
-  useEffect(() => {
-    const fetchAboutInfo = async () => {
-      try {
-        const { data } = await InfoService.getAbout();
-        setData(data);
-      } catch (error) {
-        console.error("Error fetching about info:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchAboutInfo();
-  }, []);
+  // useEffect(() => {
+  //   const fetchAboutInfo = async () => {
+  //     try {
+  //       const { data } = await InfoService.getAbout();
+  //       setData(data);
+  //     } catch (error) {
+  //       console.error("Error fetching about info:", error);
+  //     } finally {
+  //       setIsLoading(false);
+  //     }
+  //   };
+  //   fetchAboutInfo();
+  // }, []);
 
-  if (isLoading) <div>Cargando...</div>;
+  // if (isLoading) <div>Cargando...</div>;
 
   return (
     <section
@@ -95,7 +96,7 @@ const AboutSection = () => {
             {/* Description */}
             <motion.div variants={itemVariants} className="space-y-6">
               <p className="text-lg md:text-xl text-textmuted leading-relaxed">
-                {data?.content}
+                {about?.content}
               </p>
 
               {/* Skills or highlights */}
@@ -105,7 +106,7 @@ const AboutSection = () => {
                   className="p-4 rounded-xl bg-gradient-to-br from-accentcolor/10 to-neonCyan/10 border border-accentcolor/20 backdrop-blur-sm"
                 >
                   <div className="text-2xl font-bold text-accentcolor">
-                    {data?.years_of_experience}
+                    {about?.years_of_experience}
                   </div>
                   <div className="text-sm text-textmuted">Años experiencia</div>
                 </motion.div>
@@ -114,7 +115,7 @@ const AboutSection = () => {
                   className="p-4 rounded-xl bg-gradient-to-br from-neonPurple/10 to-neonPink/10 border border-neonPurple/20 backdrop-blur-sm"
                 >
                   <div className="text-2xl font-bold text-neonPurple">
-                    {data?.projects}
+                    {about?.projects}
                   </div>
                   <div className="text-sm text-textmuted">Proyectos</div>
                 </motion.div>
@@ -157,7 +158,7 @@ const AboutSection = () => {
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
-                href="#contact"
+                href="#contactMe"
                 className="px-8 py-4 border-2 border-accentcolor/30 text-accentcolor rounded-xl font-semibold transition-all duration-300 hover:bg-accentcolor/10 hover:border-accentcolor flex items-center justify-center gap-2 backdrop-blur-sm"
               >
                 <svg
@@ -187,7 +188,7 @@ const AboutSection = () => {
                 Tecnologías principales:
               </p>
               <div className="flex flex-wrap gap-2">
-                {["React", "Laravel", "Django"].map((tech, index) => (
+                {about.main_technologies.map((tech, index) => (
                   <motion.span
                     key={tech}
                     initial={{ opacity: 0, scale: 0.8 }}

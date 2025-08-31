@@ -63,7 +63,7 @@ const CardGridSkill = ({
 
         {/* Icon */}
         <motion.div
-          className="text-4xl mb-3 text-accentglow group-hover:text-accentcolor transition-colors duration-300"
+          className="text-2xl mb-3 text-accentglow group-hover:text-accentcolor transition-colors duration-300"
           whileHover={{
             rotateY: 360,
             scale: 1.2,
@@ -103,53 +103,6 @@ const CardGridSkill = ({
           </div>
         </div>
 
-        {/* Hover tooltip */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={isHovered ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-          className="absolute -top-12 left-1/2 transform -translate-x-1/2 px-3 py-1 bg-primarydark border border-accentcolor/30 rounded-lg text-xs text-accentcolor whitespace-nowrap pointer-events-none"
-        >
-          {expertiseLevel >= 90
-            ? "Expert"
-            : expertiseLevel >= 80
-            ? "Advanced"
-            : expertiseLevel >= 70
-            ? "Intermediate"
-            : "Beginner"}
-          <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-primarydark border-r border-b border-accentcolor/30 rotate-45" />
-        </motion.div>
-
-        {/* Floating particles */}
-        {isHovered && (
-          <>
-            <motion.div
-              initial={{ opacity: 0, scale: 0, x: 0, y: 0 }}
-              animate={{
-                opacity: [0, 1, 0],
-                scale: [0, 1, 0],
-                x: [0, 20, 40],
-                y: [0, -20, -40],
-              }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="absolute top-4 right-4 w-1 h-1 bg-accentcolor rounded-full"
-            />
-            <motion.div
-              initial={{ opacity: 0, scale: 0, x: 0, y: 0 }}
-              animate={{
-                opacity: [0, 1, 0],
-                scale: [0, 1, 0],
-                x: [0, -15, -30],
-                y: [0, -25, -50],
-              }}
-              transition={{
-                duration: 1.8,
-                repeat: Infinity,
-                delay: 0.3,
-              }}
-              className="absolute bottom-6 left-4 w-1 h-1 bg-neonCyan rounded-full"
-            />
-          </>
-        )}
       </div>
     </motion.div>
   );
