@@ -31,7 +31,7 @@ const ContactSection = () => {
       {/* Background Elements */}
       <ContactAnimateBackground sectionRef={sectionRef} />
 
-      <div className="container mx-auto px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-2 md:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
           variants={containerVariants}

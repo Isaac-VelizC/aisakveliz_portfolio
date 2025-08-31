@@ -74,11 +74,11 @@ const Header = () => {
         {scrolled && (
           <div className="absolute top-0 left-0 right-0 h-px opacity-60 bg-[linear-gradient(90deg,transparent,var(--color-accentcolor),var(--color-neonPurple),transparent)]" />
         )}
-        <div className="container mx-auto flex items-center justify-between px-6 py-4 font-medium xl:px-12">
+        <div className="container mx-auto flex items-center justify-between px-2 md:px-6 py-4 font-medium xl:px-12">
           <LogoName inicial="AI" name="sakVeliz" textsize="text-2xl" />
           {/* Navegación desktop */}
           <LayoutGroup>
-            <motion.ul className="hidden md:flex items-center gap-8 font-medium text-white relative">
+            <motion.ul className="hidden lg:flex items-center gap-2 font-medium text-white relative">
               {navigationItems.map(({ name, activeClass, ref }) => {
                 const isActive = active === activeClass;
 
@@ -124,7 +124,7 @@ const Header = () => {
 
           {/* Botón hamburguesa mejorado */}
           <motion.button
-            className="md:hidden relative text-textlight z-50 p-2 rounded-lg border transition-all duration-300"
+            className="lg:hidden relative text-textlight z-50 p-2 rounded-lg border transition-all duration-300"
             style={{
               borderColor: open
                 ? "var(--color-accentcolor)"

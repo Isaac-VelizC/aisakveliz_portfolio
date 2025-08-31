@@ -64,7 +64,7 @@ const AboutSection = () => {
       {/* Background Elements */}
       <AboutGradientBackground sectionRef={sectionRef} />
 
-      <div className="container mx-auto px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-2 md:px-6 lg:px-8 relative z-10">
         {/* Section Title */}
         <div className="text-center mb-16">
           <HeaderComponent title={"Conóceme mejor"} />

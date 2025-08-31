@@ -28,7 +28,7 @@ const HeroSection = () => {
       {/* Fondo animado con efectos de paralaje */}
       <HeroGradiantBackground />
 
-      <div className="relative z-10 container mx-auto px-6 lg:px-8">
+      <div className="relative z-10 container mx-auto px-2 md:px-6 lg:px-8">
         <div className="grid lg:grid-cols-3 gap-4 items-center min-h-screen py-20">
           {/* Content Section */}
           <motion.div
