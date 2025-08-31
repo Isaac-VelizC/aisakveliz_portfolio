@@ -4,13 +4,39 @@ import {
   containerVariants,
   itemVariants,
 } from "../../utils/AnimateVariantsUtils";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { useState } from "react";
 import { contentText } from "../../utils/dataUtils";
-import { InfoService } from "../../api/fetchService";
+import { useForm } from "@formspree/react";
+// import { InfoService } from "../../api/fetchService";
 
 type Props = {
   isInView: boolean;
+};
+
+const statusVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: -10,
+    scale: 0.9,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.3,
+      ease: "easeOut",
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: -10,
+    scale: 0.9,
+    transition: {
+      duration: 0.2,
+    },
+  },
 };
 
 const ContactForm = ({ isInView }: Props) => {
@@ -19,7 +45,8 @@ const ContactForm = ({ isInView }: Props) => {
     email: "",
     message: "",
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -30,21 +57,23 @@ const ContactForm = ({ isInView }: Props) => {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   setIsSubmitting(true);
 
-    try {
-      const res = await InfoService.postContactMessage(formData);
-      console.log("Mensaje guardado:", res.data);
+  //   try {
+  //     const res = await InfoService.postContactMessage(formData);
+  //     console.log("Mensaje guardado:", res.data);
 
-      setFormData({ name: "", email: "", message: "" });
-    } catch (err) {
-      console.error("Error al enviar mensaje:", err);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  //     setFormData({ name: "", email: "", message: "" });
+  //   } catch (err) {
+  //     console.error("Error al enviar mensaje:", err);
+  //   } finally {
+  //     setIsSubmitting(false);
+  //   }
+  // };
+
+  const [state, handleSubmit] = useForm("xjkewojn");
 
   return (
     <motion.div
@@ -64,6 +93,50 @@ const ContactForm = ({ isInView }: Props) => {
           <p className="text-textmuted">
             ¿Tienes una idea increíble? ¡Me encantaría escucharla!
           </p>
+        </motion.div>
+
+        {/* Mensajes de estado con animación */}
+        <motion.div
+          variants={statusVariants}
+          initial="hidden"
+          animate={status !== "idle" ? "visible" : "hidden"}
+          exit="exit"
+          className="relative"
+        >
+          {state.succeeded && (
+            <motion.p
+              className="text-green-600 text-sm mt-2 flex items-center gap-2 bg-green-50 p-3 rounded-lg border border-green-200"
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              transition={{ type: "spring", stiffness: 200 }}
+            >
+              <motion.span
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.1, type: "spring", stiffness: 300 }}
+              >
+                ✅
+              </motion.span>
+              Mensaje enviado con éxito, te contactaremos pronto.
+            </motion.p>
+          )}
+          {state.errors && (
+            <motion.p
+              className="text-red-600 text-sm mt-2 flex items-center gap-2 bg-red-50 p-3 rounded-lg border border-red-200"
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              transition={{ type: "spring", stiffness: 200 }}
+            >
+              <motion.span
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.1, type: "spring", stiffness: 300 }}
+              >
+                ❌
+              </motion.span>
+              Hubo un problema, inténtalo nuevamente.
+            </motion.p>
+          )}
         </motion.div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -120,12 +193,12 @@ const ContactForm = ({ isInView }: Props) => {
           >
             <motion.button
               type="submit"
-              disabled={isSubmitting}
+              disabled={state.submitting}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="flex-1 px-8 py-4 bg-gradient-to-r from-accentcolor to-neonCyan text-white rounded-xl font-semibold transition-all duration-300 hover:shadow-blue-md disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
             >
-              {isSubmitting ? (
+              {state.submitting ? (
                 <>
                   <motion.div
                     animate={{ rotate: 360 }}
