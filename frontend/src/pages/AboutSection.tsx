@@ -5,6 +5,7 @@ import { useInView, motion, type Variants } from "framer-motion";
 import HeaderComponent from "../components/HeaderComponent";
 import { containerVariants } from "../utils/AnimateVariantsUtils";
 import ImageSectionAbout from "./Components/ImageSectionAbout";
+import CurriculumPDf from "../assets/pdf/Isaac_Veliz_Canaza_Curriculum.pdf";
 // import { InfoService } from "../api/fetchService";
 // import type { AboutInfoInterface } from "../interface/About";
 import { contentText } from "../utils/dataUtils";
@@ -23,8 +24,8 @@ const itemVariants: Variants = {
 // Descargar documento
 const downloadDocument = () => {
   const link = document.createElement("a");
-  link.href = "curriculum";
-  link.download = "IsaacVeliz_hoja-de-vida.pdf";
+  link.href = CurriculumPDf;
+  link.download = "Isaac_Veliz_Canaza_Curriculum.pdf";
   document.body.appendChild(link);
   link.click();
   link.remove();

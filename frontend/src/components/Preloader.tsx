@@ -110,7 +110,7 @@ const Preloader = () => {
                 animate="visible"
                 className="flex items-center"
               >
-                <div className="text-xl md:text-5xl xl:text-7xl font-bold tracking-wide">
+                <div className="text-5xl xl:text-7xl font-bold tracking-wide">
                   {'AIsakVeliz'.split('').map((letter, index) => (
                     <motion.span
                       key={index}
