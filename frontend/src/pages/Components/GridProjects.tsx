@@ -5,9 +5,9 @@ import type { ProjectsInterface } from "../../interface/Project";
 import {
   FaExternalLinkAlt,
   FaCode,
-  // FaStar,
-  // FaEye,
-  // FaCalendarAlt,
+  FaStar,
+  FaEye,
+  FaCalendarAlt,
 } from "react-icons/fa";
 import PreviewOrvelayProject from "../../components/PreviewOrvelayProject";
 import { getStatusColor, getStatusText } from "../../utils/funtionsUtils";
@@ -40,7 +40,8 @@ const cardVariants: Variants = {
 const GridProjects = ({ isInView }: Props) => {
   const [filter, setFilter] = useState("all");
   // const [projects, setProjects] = useState<ProjectsInterface[]>([]);
-  const [selectedProject, setSelectedProject] = useState<ProjectsInterface | null>(null);
+  const [selectedProject, setSelectedProject] =
+    useState<ProjectsInterface | null>(null);
 
   // useEffect(() => {
   //   const fetchProjects = async () => {
@@ -57,6 +58,14 @@ const GridProjects = ({ isInView }: Props) => {
       projects.flatMap((p) => p.technologies.map((tech) => tech.name))
     ),
   ];
+
+  // Filtrar proyectos
+  const filteredProjects =
+    filter === "all"
+      ? projects
+      : projects.filter((project) =>
+          project.technologies.some((tech) => tech.name === filter)
+        );
 
   return (
     <>
@@ -87,10 +96,10 @@ const GridProjects = ({ isInView }: Props) => {
       {/** Projects Grid */}
       <motion.div layout className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
         <AnimatePresence mode="popLayout">
-          {projects.map((project, index) => (
+          {filteredProjects.map((project, index) => (
             <motion.div
               layout
-              key={project.id}
+              key={index}
               variants={cardVariants}
               initial="hidden"
               animate="visible"
@@ -115,7 +124,11 @@ const GridProjects = ({ isInView }: Props) => {
               {/* Image/Preview */}
               <div className="relative h-48 overflow-hidden bg-gradient-to-br from-accentcolor/10 to-neonPurple/10">
                 <motion.img
-                  src={project.image}
+                  src={
+                    project.image
+                      ? project.image
+                      : "https://i.pinimg.com/736x/e4/3f/cd/e43fcd1cd8bdb6e6be2b017249da54f1.jpg"
+                  }
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   whileHover={{ scale: 1.05 }}
@@ -176,20 +189,24 @@ const GridProjects = ({ isInView }: Props) => {
 
                 {/* Stats */}
                 <div className="flex items-center justify-between pt-4 border-t border-accentcolor/10">
-                  {/*<div className="flex items-center gap-4 text-xs text-textmuted">
-                    <div className="flex items-center gap-1">
-                      <FaStar className="text-yellow-400" />
-                      <span>{project.stars}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <FaEye className="text-accentcolor" />
-                      <span>{project.views}</span>
-                    </div>
+                  <div className="flex items-center gap-4 text-xs text-textmuted">
+                    {project.stars > 0 && (
+                      <div className="flex items-center gap-1">
+                        <FaStar className="text-yellow-400" />
+                        <span>{project.stars}</span>
+                      </div>
+                    )}
+                    {project.views > 0 && (
+                      <div className="flex items-center gap-1">
+                        <FaEye className="text-accentcolor" />
+                        <span>{project.views}</span>
+                      </div>
+                    )}
                     <div className="flex items-center gap-1">
                       <FaCalendarAlt className="text-textmuted" />
-                      <span>{project.created_at}</span>
+                      <span>{project.date}</span>
                     </div>
-                  </div>*/}
+                  </div>
 
                   {/* Action Buttons */}
                   <div className="flex gap-2">
@@ -231,7 +248,7 @@ const GridProjects = ({ isInView }: Props) => {
           ))}
         </AnimatePresence>
       </motion.div>
-      
+
       {/* Project Modal */}
       <ModalProject
         selectedProject={selectedProject}

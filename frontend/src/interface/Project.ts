@@ -5,9 +5,9 @@ export interface ProjectsInterface {
   title: string;
   slug: string;
   description: string;
-  image: string;
-  repository_url: string;
-  demo_url: string;
+  image: string | null;
+  repository_url: string | null;
+  demo_url: string | null;
   date: string;
   status: string;
   technologies: { name: string }[];

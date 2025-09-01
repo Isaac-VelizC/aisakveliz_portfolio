@@ -44,7 +44,7 @@ const SocialLinks = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 1.2 + index * 0.1 }}
             >
-              <span className="text-sm font-medium">
+              <span className="text-xl font-medium">
                 {iconMap[network.icon] || network.name.charAt(0).toUpperCase()}
               </span>
             </motion.a>
@@ -70,8 +70,8 @@ const SocialLinks = () => {
             className="w-10 h-10 rounded-full border border-accentcolor/30 bg-primarylight/50 backdrop-blur-sm flex items-center justify-center text-accentcolor hover:bg-accentcolor hover:text-primarydark transition-all duration-300"
             whileHover={{ scale: 1.1 }}
           >
-            <span className="text-xs font-medium">
-              {network.name.charAt(0).toUpperCase()}
+            <span className="text-lg font-medium">
+              {iconMap[network.icon] || network.name.charAt(0).toUpperCase()}
             </span>
           </motion.a>
         ))}
