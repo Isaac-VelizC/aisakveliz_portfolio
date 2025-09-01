@@ -2,6 +2,7 @@ import { AnimatePresence, motion, type Variants } from "framer-motion";
 import { useState } from "react";
 // import { InfoService } from "../../api/fetchService";
 import type { ProjectsInterface } from "../../interface/Project";
+import ImgNone from "../../assets/project-none.png";
 import {
   FaExternalLinkAlt,
   FaCode,
@@ -127,7 +128,7 @@ const GridProjects = ({ isInView }: Props) => {
                   src={
                     project.image
                       ? project.image
-                      : "https://i.pinimg.com/736x/e4/3f/cd/e43fcd1cd8bdb6e6be2b017249da54f1.jpg"
+                      : ImgNone
                   }
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"

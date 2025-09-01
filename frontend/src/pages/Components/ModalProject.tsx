@@ -2,6 +2,7 @@ import { AnimatePresence, motion, type Variants } from "framer-motion";
 import React from "react";
 import type { ProjectsInterface } from "../../interface/Project";
 import { getStatusColor, getStatusText } from "../../utils/funtionsUtils";
+import ImgNone from "../../assets/project-none.png";
 
 type Props = {
   selectedProject: ProjectsInterface | null;
@@ -81,7 +82,7 @@ const ModalProject: React.FC<Props> = ({
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-6">
                 <img
-                  src={selectedProject.image}
+                  src={selectedProject.image || ImgNone}
                   alt={selectedProject.title}
                   className="w-full h-64 object-cover rounded-xl"
                 />
