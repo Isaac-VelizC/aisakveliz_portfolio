@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { itemVariants } from "../../utils/AnimateVariantsUtils";
+import ButtonComponent from "../../components/ButtonComponent";
 
 type HeroButtonsProps = {
-    linkWhatsApp: string;
+  linkWhatsApp: string;
 };
 
 const HeroButtons = ({ linkWhatsApp }: HeroButtonsProps) => {
@@ -11,18 +12,10 @@ const HeroButtons = ({ linkWhatsApp }: HeroButtonsProps) => {
       variants={itemVariants}
       className="flex flex-col sm:flex-row gap-4 pt-4"
     >
-      <motion.a
-        whileHover={{
-          scale: 1.05,
-          boxShadow: "0 0 30px rgba(0,183,255,0.4)",
-        }}
-        whileTap={{ scale: 0.98 }}
-        href="#projects"
-        aria-label="Ver Proyectos"
-        className="group relative px-8 py-4 bg-gradient-to-r from-accentcolor to-neonCyan rounded-xl font-semibold text-white transition-all duration-300 overflow-hidden"
-      >
-        <span className="relative z-10 flex items-center gap-2">
-          Ver Proyectos
+      <ButtonComponent
+        hrefUrl="#projects"
+        name="Ver Proyectos"
+        icon={
           <motion.svg
             className="w-5 h-5"
             fill="none"
@@ -38,9 +31,8 @@ const HeroButtons = ({ linkWhatsApp }: HeroButtonsProps) => {
               d="M13 7l5 5m0 0l-5 5m5-5H6"
             />
           </motion.svg>
-        </span>
-        <div className="absolute inset-0 bg-gradient-to-r from-neonCyan to-neonPurple opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      </motion.a>
+        }
+      />
 
       <motion.a
         whileHover={{

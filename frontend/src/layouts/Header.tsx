@@ -3,6 +3,7 @@ import { LayoutGroup, motion } from "framer-motion";
 import { navigationItems } from "../utils/dataUtils";
 import OverlayCloseMovil from "./components/OverlayCloseMovil";
 import LogoName from "../components/LogoName";
+import ButtonComponent from "../components/ButtonComponent";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -121,6 +122,7 @@ const Header = () => {
               })}
             </motion.ul>
           </LayoutGroup>
+          <ButtonComponent hrefUrl="#contactMe" name="Contáctame" size="small" className="hidden xl:block" />
 
           {/* Botón hamburguesa mejorado */}
           <motion.button
