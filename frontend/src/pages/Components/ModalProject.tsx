@@ -45,7 +45,7 @@ const ModalProject: React.FC<Props> = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-9999 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           onClick={() => setSelectedProject(null)}
         >
           <motion.div
@@ -58,7 +58,7 @@ const ModalProject: React.FC<Props> = ({
           >
             <div className="flex justify-between items-start mb-6">
               <div>
-                <h3 className="text-3xl font-bold text-textlight mb-2">
+                <h3 className="text-2xl font-bold text-textlight mb-2">
                   {selectedProject.title}
                 </h3>
                 <span
@@ -73,7 +73,7 @@ const ModalProject: React.FC<Props> = ({
                 whileHover={{ scale: 1.1, rotate: 90 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={() => setSelectedProject(null)}
-                className="p-2 rounded-full bg-accentcolor/20 text-accentcolor hover:bg-accentcolor hover:text-white transition-all duration-300"
+                className="px-2 py-1 rounded-full bg-accentcolor/20 text-accentcolor hover:bg-accentcolor hover:text-white transition-all duration-300"
               >
                 ✕
               </motion.button>
@@ -84,7 +84,7 @@ const ModalProject: React.FC<Props> = ({
                 <img
                   src={selectedProject.image || ImgNone}
                   alt={selectedProject.title}
-                  className="w-full h-64 object-cover rounded-xl"
+                  className="w-full h-36 lg:h-56 object-cover rounded-xl"
                 />
 
                 <div className="space-y-4">

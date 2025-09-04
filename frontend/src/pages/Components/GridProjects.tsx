@@ -1,7 +1,6 @@
 import { AnimatePresence, motion, type Variants } from "framer-motion";
 import { useState } from "react";
 // import { InfoService } from "../../api/fetchService";
-import type { ProjectsInterface } from "../../interface/Project";
 import ImgNone from "../../assets/project-none.png";
 import {
   FaExternalLinkAlt,
@@ -12,12 +11,8 @@ import {
 } from "react-icons/fa";
 import PreviewOrvelayProject from "../../components/PreviewOrvelayProject";
 import { getStatusColor, getStatusText } from "../../utils/funtionsUtils";
-import ModalProject from "./ModalProject";
 import { projects } from "../../assets/informacion.json";
-
-type Props = {
-  isInView: boolean;
-};
+import type { ProjectsInterface } from "../../interface/Project";
 
 const cardVariants: Variants = {
   hidden: {
@@ -38,12 +33,14 @@ const cardVariants: Variants = {
   },
 };
 
-const GridProjects = ({ isInView }: Props) => {
+type Props = {
+  isInView: boolean;
+  setSelectedProject: (project: ProjectsInterface | null) => void;
+};
+
+const GridProjects = ({ isInView, setSelectedProject }: Props) => {
   const [filter, setFilter] = useState("all");
   // const [projects, setProjects] = useState<ProjectsInterface[]>([]);
-  const [selectedProject, setSelectedProject] =
-    useState<ProjectsInterface | null>(null);
-
   // useEffect(() => {
   //   const fetchProjects = async () => {
   //     const data = await InfoService.getProjects();
@@ -250,11 +247,6 @@ const GridProjects = ({ isInView }: Props) => {
         </AnimatePresence>
       </motion.div>
 
-      {/* Project Modal */}
-      <ModalProject
-        selectedProject={selectedProject}
-        setSelectedProject={setSelectedProject}
-      />
     </>
   );
 };

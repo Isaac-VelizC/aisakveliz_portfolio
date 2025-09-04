@@ -33,13 +33,13 @@
   --shadow-neonCyan-lg: 0 0 10px #00b7ff;
 
   /* Z-Index */
-  --z-index-1: 1;
+  /* --z-index-1: 1;
   --z-index-9: 9;
   --z-index-99: 99;
   --z-index-999: 999;
   --z-index-9999: 9999;
   --z-index-99999: 99999;
-  --z-index-999999: 999999;
+  --z-index-999999: 999999; */
 
   /* Breakpoints personalizados */
   --breakpoint-2xsm: 375px;

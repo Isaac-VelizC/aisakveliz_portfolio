@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import ProjectGradientBackground from "./Components/ProjectGradientBackground";
 import { useInView, motion, type Variants } from "framer-motion";
 import { containerVariants } from "../utils/AnimateVariantsUtils";
@@ -6,6 +6,8 @@ import HeaderComponent from "../components/HeaderComponent";
 import { contentText } from "../utils/dataUtils";
 import { FaGithub, FaArrowRight } from "react-icons/fa";
 import GridProjects from "./Components/GridProjects";
+import ModalProject from "./Components/ModalProject";
+import type { ProjectsInterface } from "../interface/Project";
 
 const headerVariants: Variants = {
   hidden: { opacity: 0, y: 50, filter: "blur(10px)" },
@@ -22,8 +24,10 @@ const headerVariants: Variants = {
 
 const ProjectSection = () => {
   const sectionRef = useRef(null);
+  const [selectedProject, setSelectedProject] =
+    useState<ProjectsInterface | null>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
-  
+
   return (
     <section
       ref={sectionRef}
@@ -32,8 +36,8 @@ const ProjectSection = () => {
     >
       {/* Background Elements */}
       <ProjectGradientBackground sectionRef={sectionRef} />
-      
-      <div className="container mx-auto px-2 md:px-6 lg:px-8 relative z-10">
+
+      <div className="container mx-auto px-2 md:px-6 lg:px-8 relative z-0">
         {/* Section Header */}
         <motion.div
           variants={containerVariants}
@@ -61,8 +65,11 @@ const ProjectSection = () => {
           </motion.p>
         </motion.div>
         {/* Project Filter */}
-        <GridProjects isInView={isInView} />
-        
+        <GridProjects
+          isInView={isInView}
+          setSelectedProject={setSelectedProject}
+        />
+
         {/* View More Projects */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -89,6 +96,12 @@ const ProjectSection = () => {
           </motion.a>
         </motion.div>
       </div>
+
+      {/* Project Modal */}
+      <ModalProject
+        selectedProject={selectedProject}
+        setSelectedProject={setSelectedProject}
+      />
     </section>
   );
 };

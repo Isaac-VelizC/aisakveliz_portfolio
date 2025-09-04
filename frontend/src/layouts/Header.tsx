@@ -60,7 +60,7 @@ const Header = () => {
     <>
       <nav
         id="navbar"
-        className="fixed top-0 w-full z-50 transition-all duration-500 ease-in-out"
+        className="fixed top-0 w-full z-40 transition-all duration-500 ease-in-out"
         style={{
           background: scrolled ? "rgba(10, 15, 28, 0.95)" : "transparent",
           backdropFilter: scrolled ? "blur(20px)" : "blur(5px)",
@@ -126,7 +126,7 @@ const Header = () => {
 
           {/* Botón hamburguesa mejorado */}
           <motion.button
-            className="lg:hidden relative text-textlight z-50 p-2 rounded-lg border transition-all duration-300"
+            className="lg:hidden relative text-textlight z-40 p-2 rounded-lg border transition-all duration-300"
             style={{
               borderColor: open
                 ? "var(--color-accentcolor)"
@@ -183,7 +183,7 @@ const Header = () => {
               damping: 30,
               opacity: { duration: 0.2 },
             }}
-            className="fixed top-0 left-0 h-screen backdrop-filter backdrop-blur-xl w-full z-40 py-24 px-6 space-y-4 text-center lg:hidden
+            className="fixed top-0 left-0 h-screen backdrop-filter backdrop-blur-xl w-full z-30 py-24 px-6 space-y-4 text-center lg:hidden
               bg-[linear-gradient(135deg,_rgba(10,15,28,0.98)_0%,_rgba(18,24,38,0.95)_100%)]
               border-r border-r-accentcolor/20
             "

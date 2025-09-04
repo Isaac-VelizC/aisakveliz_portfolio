@@ -24,7 +24,7 @@ const BackToTopButton = () => {
     <AnimatePresence>
       {showBackToTop && (
         <motion.div
-          className="fixed right-6 bottom-6 z-50"
+          className="fixed right-6 bottom-6 z-40"
           initial={{ opacity: 0, scale: 0, rotate: -180 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           exit={{ opacity: 0, scale: 0, rotate: 180 }}
@@ -75,7 +75,7 @@ const BackToTopButton = () => {
               fill="white"
               viewBox="0 -960 960 960"
               aria-hidden="true"
-              className="relative z-10 drop-shadow-sm"
+              className="relative z-20 drop-shadow-sm"
               whileHover={{ y: -2 }}
               transition={{ duration: 0.2 }}
             >

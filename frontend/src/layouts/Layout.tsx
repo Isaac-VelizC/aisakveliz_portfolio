@@ -11,7 +11,7 @@ const Layout = ({ children }: LayoutProps) => {
     <div className="relative min-h-screen overflow-hidden">
       {/* Main Content */}
       <Header />
-      <main className="relative z-10">{children}</main>
+      <main className="relative z-auto">{children}</main>
       {/* Back to Top Button */}
       <BackToTopButton />
     </div>

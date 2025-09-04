@@ -26,7 +26,7 @@ const ContactSection = () => {
     <section
       ref={sectionRef}
       id="contactMe"
-      className="relative min-h-screen py-20 overflow-hidden"
+      className="relative min-h-screen py-20 overflow-hidden z-0"
     >
       {/* Background Elements */}
       <ContactAnimateBackground sectionRef={sectionRef} />

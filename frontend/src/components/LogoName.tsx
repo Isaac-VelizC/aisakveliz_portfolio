@@ -11,7 +11,7 @@ const LogoName: React.FC<LogoNameProps> = ({ inicial, name, textsize }) => {
   return (
     <motion.a
       href="#home"
-      className="cursor-pointer z-50 relative"
+      className="cursor-pointer z-40 relative"
       aria-label="Homepage"
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}

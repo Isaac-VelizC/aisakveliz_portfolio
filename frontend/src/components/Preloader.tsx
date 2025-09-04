@@ -99,7 +99,7 @@ const Preloader = () => {
           </motion.div>
 
           {/* Contenedor principal */}
-          <div className="relative z-10 text-center">
+          <div className="relative z-40 text-center">
             
             {/* Símbolos tecnológicos */}
             <div className="flex items-center justify-center space-x-6 mb-8">
