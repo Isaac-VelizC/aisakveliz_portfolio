@@ -10,7 +10,7 @@ interface LogoNameProps {
 const LogoName: React.FC<LogoNameProps> = ({ inicial, name, textsize }) => {
   return (
     <motion.a
-      href="#home"
+      href="#hero"
       className="cursor-pointer z-40 relative"
       aria-label="Homepage"
       whileHover={{ scale: 1.05 }}
