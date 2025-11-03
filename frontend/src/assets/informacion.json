@@ -149,6 +149,27 @@
       "created_at": "2024-07-01T12:00:00Z"
     },
     {
+      "id": "8",
+      "title": "Sistema de Gestión de Reservas | Proyecto Fullstack",
+      "slug": "sistema-de-gestion-de-reservas-proyecto-fullstack-con-laravel-react-inertia",
+      "description": "Aplicación Fullstack desarrollada con Laravel, React e Inertia.js para la gestión integral de usuarios, clientes, servicios, horarios y reservas. Aunque continúa en desarrollo, el sistema ya ofrece un flujo funcional completo, ideal para pequeños negocios que buscan digitalizar y optimizar la gestión de citas y turnos de atención.",
+      "image": "https://res.cloudinary.com/dcvaqzmt9/image/upload/v1762209262/iwhaphm2jcomairwsldh.png",
+      "repository_url": "https://github.com/Isaac-VelizC/reser_vita",
+      "demo_url": "https://youtu.be/gYbi2iRNdAs?si=ERrt7kA43eYF5mCx",
+      "status": "published",
+      "date": "03 de noviembre de 2025",
+      "technologies": [
+        { "name": "Laravel" },
+        { "name": "React" },
+        { "name": "Inertia.js" },
+        { "name": "Tailwind CSS" }
+      ],
+      "views": 0,
+      "stars": 0,
+      "featured": true,
+      "created_at": "2025-11-03T12:00:00Z"
+    },
+    {
       "id": "6",
       "title": "Landing Page para Belleza Total – Salón de Belleza",
       "slug": "landing-page-para-belleza-total-salon-de-belleza",
@@ -218,7 +239,7 @@
       "created_at": "2024-07-01T12:00:00Z"
     },
     {
-      "id": "5",
+      "id": "7",
       "title": "Landing Page para PyMEs Textiles",
       "slug": "landing-page-para-PyMEs-textiles",
       "description": "Landing page optimizada para una pequeña textilería, con diseño adaptable, formularios de contacto y secciones para mostrar productos, servicios y testimonios. Orientada a aumentar la captación de clientes y ventas en línea.",

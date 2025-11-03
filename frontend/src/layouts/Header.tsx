@@ -76,7 +76,7 @@ const Header = () => {
           <div className="absolute top-0 left-0 right-0 h-px opacity-60 bg-[linear-gradient(90deg,transparent,var(--color-accentcolor),var(--color-neonPurple),transparent)]" />
         )}
         <div className="container mx-auto flex items-center justify-between px-2 md:px-6 py-4 font-medium xl:px-12">
-          <LogoName inicial="AI" name="sakVeliz" textsize="text-2xl" />
+          <LogoName inicial="AI" name="SAKVELIZ" textsize="text-2xl" />
           {/* Navegación desktop */}
           <LayoutGroup>
             <motion.ul className="hidden lg:flex items-center gap-2 font-medium text-white relative">
