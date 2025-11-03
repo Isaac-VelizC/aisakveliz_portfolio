@@ -1,5 +1,5 @@
 export const navigationItems = [
-  { name: "Inicio", ref: "#hero", activeClass: "home" },
+  // { name: "Inicio", ref: "#hero", activeClass: "home" },
   { name: "Sobre mí", ref: "#aboutMe", activeClass: "aboutMe" },
   { name: "Servicios", ref: "#services", activeClass: "services" },
   { name: "Habilidades", ref: "#technologies", activeClass: "technologies" },
