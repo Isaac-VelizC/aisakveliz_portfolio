@@ -1,3 +1,18 @@
 User-agent: *
 Allow: /
-Sitemap: https://aisakveliz.netlify.app/sitemap.xml
+
+# Bloquear rutas de admin y APIs privadas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /static/
+
+# Permitir archivos importantes
+Allow: /static/css/
+Allow: /static/js/
+Allow: /static/images/
+
+# Sitemap dinámico
+Sitemap: %VITE_URL_APP%/sitemap.xml
+
+# Información adicional
+Crawl-delay: 1

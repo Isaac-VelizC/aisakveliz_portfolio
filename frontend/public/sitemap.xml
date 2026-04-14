@@ -1,44 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
+  <!-- Página principal - Highest priority -->
   <url>
-    <loc>https://aisakveliz.onrender.com/</loc>
-    <lastmod>2025-07-13</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>%VITE_URL_APP%/</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>%VITE_URL_APP%/banner.png</image:loc>
+      <image:title>Portafolio de Isaac Veliz - Full Stack Developer</image:title>
+    </image:image>
   </url>
 
+  <!-- Sección About - High priority -->
   <url>
-    <loc>https://aisakveliz.onrender.com/about</loc>
-    <lastmod>2025-07-13</lastmod>
+    <loc>%VITE_URL_APP%/#about</loc>
+    <lastmod>2025-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
+  <!-- Sección Services - High priority -->
   <url>
-    <loc>https://aisakveliz.onrender.com/services</loc>
-    <lastmod>2025-07-13</lastmod>
+    <loc>%VITE_URL_APP%/#services</loc>
+    <lastmod>2025-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
+  <!-- Sección Technologies - Medium priority -->
   <url>
-    <loc>https://aisakveliz.onrender.com/technologies</loc>
-    <lastmod>2025-07-13</lastmod>
+    <loc>%VITE_URL_APP%/#technologies</loc>
+    <lastmod>2025-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
+  <!-- Sección Projects - High priority -->
   <url>
-    <loc>https://aisakveliz.onrender.com/projects</loc>
-    <lastmod>2025-07-13</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>%VITE_URL_APP%/#projects</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
+  <!-- Sección Contact - Medium priority -->
   <url>
-    <loc>https://aisakveliz.onrender.com/contact</loc>
-    <lastmod>2025-07-13</lastmod>
+    <loc>%VITE_URL_APP%/#contact</loc>
+    <lastmod>2025-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
